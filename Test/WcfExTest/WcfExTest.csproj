@@ -1,0 +1,71 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{A08E96BD-CC89-49EF-BA39-C90245128961}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WcfEx.Test</RootNamespace>
+    <AssemblyName>WcfEx.Test</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputPath>Bin\</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\Bin\</OutputPath>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System.XML" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\WcfEx\WcfEx.csproj">
+      <Project>{34AE5CD4-82A4-4991-B05B-9C55DF7617CB}</Project>
+      <Name>WcfEx</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Contract\Contract.csproj">
+      <Project>{4C3B168D-0500-4DE8-A6A3-BC3AD87A098F}</Project>
+      <Name>Contract %28Test\Contract%29</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
+      <Visible>False</Visible>
+    </CodeAnalysisDependentAssemblyPaths>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Core\TestAsyncResult.cs" />
+    <Compile Include="Core\TestManagedBuffer.cs" />
+    <Compile Include="Core\TestMessageCodec.cs" />
+    <Compile Include="Core\TestSyncResult.cs" />
+    <Compile Include="Core\TypeResolver\CustomResolver.cs" />
+    <Compile Include="Core\TypeResolver\Server.cs" />
+    <Compile Include="Core\TypeResolver\Data.cs" />
+    <Compile Include="Core\TypeResolver\TestTypeResolver.cs" />
+    <Compile Include="ServiceHost\TestServiceHost.cs" />
+    <Compile Include="UdpTransport\Server.cs" />
+    <Compile Include="UdpTransport\Test.cs" />
+    <Compile Include="DeflateCodec\Server.cs" />
+    <Compile Include="DeflateCodec\Test.cs" />
+    <Compile Include="GZipCodec\Server.cs" />
+    <Compile Include="GZipCodec\Test.cs" />
+    <Compile Include="InProcTransport\Test.cs" />
+    <Compile Include="InProcTransport\Server.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

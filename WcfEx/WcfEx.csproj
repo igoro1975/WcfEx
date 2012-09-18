@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{34AE5CD4-82A4-4991-B05B-9C55DF7617CB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>WcfEx</RootNamespace>
+    <AssemblyName>WcfEx</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OutputPath>..\Bin\</OutputPath>
+    <WarningLevel>4</WarningLevel>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineConstants>DEBUG</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Behavior\ClientHostBehavior.cs" />
+    <Compile Include="Core\Behavior\ContractBehaviorAttribute.cs" />
+    <Compile Include="Core\Behavior\ServiceBehavior.cs" />
+    <Compile Include="Core\Behavior\EndpointBehavior.cs" />
+    <Compile Include="Core\Bindings\BindingElementExtension.cs" />
+    <Compile Include="Core\Bindings\SimpleBindingExtension.cs" />
+    <Compile Include="Core\Channels\Channel.cs" />
+    <Compile Include="Core\Channels\ReplyChannel.cs" />
+    <Compile Include="Core\Channels\RequestReply.cs" />
+    <Compile Include="Core\Channels\RequestChannel.cs" />
+    <Compile Include="Client\Client.cs" />
+    <Compile Include="Client\DuplexClient.cs" />
+    <Compile Include="Core\Channels\OutputChannel.cs" />
+    <Compile Include="Core\Channels\InputChannel.cs" />
+    <Compile Include="Core\Channels\DuplexChannel.cs" />
+    <Compile Include="Core\ManagedBuffer.cs" />
+    <Compile Include="Core\MessageCodec.cs" />
+    <Compile Include="Codec\Deflate\BindingElement.cs" />
+    <Compile Include="Codec\Deflate\Codec.cs" />
+    <Compile Include="Core\AsyncResult.cs" />
+    <Compile Include="Core\ChannelFactory.cs" />
+    <Compile Include="Core\ChannelListener.cs" />
+    <Compile Include="Core\Channels\DuplexSessionChannel.cs" />
+    <Compile Include="Core\SyncResult.cs" />
+    <Compile Include="Codec\Deflate\Factory.cs" />
+    <Compile Include="Codec\GZip\BindingElement.cs" />
+    <Compile Include="Codec\GZip\Codec.cs" />
+    <Compile Include="Codec\GZip\Factory.cs" />
+    <Compile Include="Transport\InProc\Binding.cs" />
+    <Compile Include="Transport\InProc\BindingElement.cs" />
+    <Compile Include="Transport\InProc\Broker.cs" />
+    <Compile Include="Transport\InProc\Channel.cs" />
+    <Compile Include="Transport\InProc\Factory.cs" />
+    <Compile Include="Transport\InProc\Listener.cs" />
+    <Compile Include="Transport\InProc\Session.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Contract\SharedTypeResolver.cs" />
+    <Compile Include="Core\Contract\TypeResolver.cs" />
+    <Compile Include="Core\Contract\TypeResolverAttribute.cs" />
+    <Compile Include="Transport\Udp\BindingElement.cs" />
+    <Compile Include="Transport\Udp\Binding.cs" />
+    <Compile Include="Transport\Udp\OutputChannel.cs" />
+    <Compile Include="Transport\Udp\InputChannel.cs" />
+    <Compile Include="Transport\Udp\Factory.cs" />
+    <Compile Include="Transport\Udp\Listener.cs" />
+    <Compile Include="Transport\Udp\ReplyChannel.cs" />
+    <Compile Include="Transport\Udp\RequestChannel.cs" />
+    <Compile Include="Transport\Udp\RequestReply.cs" />
+    <Compile Include="Transport\Udp\UdpSocket.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="..\license.txt">
+      <Link>license.txt</Link>
+    </Content>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
