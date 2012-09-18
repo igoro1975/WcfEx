@@ -89,6 +89,9 @@
     <Content Include="..\license.txt">
       <Link>license.txt</Link>
     </Content>
+    <Content Include="..\WcfEx.png">
+      <Link>WcfEx.png</Link>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md">
