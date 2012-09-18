@@ -94,6 +94,9 @@
     <None Include="..\README.md">
       <Link>README.md</Link>
     </None>
+    <None Include="..\WcfEx.nuspec">
+      <Link>WcfEx.nuspec</Link>
+    </None>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

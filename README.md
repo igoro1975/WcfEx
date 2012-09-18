@@ -2,6 +2,8 @@ WcfEx
 =====
 Yet another lightweight WCF extensions library for .NET 4.0+
 
+###`PM> Install-Package WcfEx`###
+
 Features:
 ---------
 * Generic client channel wrappers for simplex and duplex contracts
