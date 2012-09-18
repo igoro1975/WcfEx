@@ -83,10 +83,17 @@
     <Compile Include="Transport\Udp\UdpSocket.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="..\.gitignore">
+      <Link>.gitignore</Link>
+    </Content>
     <Content Include="..\license.txt">
       <Link>license.txt</Link>
     </Content>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <None Include="..\README.md">
+      <Link>README.md</Link>
+    </None>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
