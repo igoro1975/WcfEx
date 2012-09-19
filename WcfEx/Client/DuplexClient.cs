@@ -42,6 +42,8 @@ namespace WcfEx
       where TContract : class 
       where TCallback : class
    {
+      private Boolean hasOpened = false;
+
       #region Construction/Disposal
       /// <summary>
       /// Initializes a new client instance
@@ -210,7 +212,28 @@ namespace WcfEx
       /// </summary>
       public TContract Server
       {
-         get { return base.Channel; }
+         get
+         {
+            // we must explicitly open the proxy to avoid serializing 
+            // all calls made through a shared client instance
+            // http://blogs.msdn.com/b/wenlong/archive/2007/10/26/best-practice-always-open-wcf-client-proxy-explicitly-when-it-is-shared.aspx
+            // further, we can't rely on the channel state to detect when
+            // we are opened, because WCF sets the state prematurely,
+            // resulting in "Cannot make a call on this channel because 
+            // a call to Open() is in progress" errors
+            if (!this.hasOpened)
+            {
+               lock (this)
+               {
+                  if (base.State != CommunicationState.Opened)
+                  {
+                     base.Open();
+                     this.hasOpened = true;
+                  }
+               }
+            }
+            return base.Channel;
+         }
       }
       /// <summary>
       /// The IContextChannel interface, for setting up
