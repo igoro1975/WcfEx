@@ -8,28 +8,36 @@ Features:
 ---------
 * Generic client channel wrappers for simplex and duplex contracts
 * A generic WCF host executable for DLL-based services, optionally 
-installed as a Windows service
+  installed as a Windows service
 * A UDP transport layer, for input/output and request/reply channels
 * An in-process transport layer and automatic client host, for 
-configuration-based hosting within the client process
+  configuration-based hosting within the client process
 * GZip/Deflate message encoders, for compressing buffered or streamed messages
 * Base classes for the WCF bindings, channels, listeners, factories, and 
-behaviors with default sync or async methods
+  behaviors with default sync or async methods
 * Synchronous and asynchronous `IAsyncResult` implementation utilities, for 
-simplified APM in WCF
+  simplified Asynchronous Programming Model (APM) implementation in WCF
 
 ###Client Channel Wrappers###
-    // default configuration-based endpoint
-    using (var client = new WcfEx.Client<IService>()
-      client.Server.Execute("test");
+These generic classes simplify the development of WCF clients by removing the
+need for IDE-generated wrappers, which do nothing but duplicate the contract
+methods and delegate to the service interface. Simply instantiate a new
+instance of Client<TContract> or DuplexClient<TContract> and call the
+interface directly through the Server property.
 
-    // named configuration-based endpoint
-    using (var client = new WcfEx.Client<IService>("MyEndpoint")
-      client.Server.Execute("test");
+```c#
+// default configuration-based endpoint
+using (var client = new WcfEx.Client<IService>()
+   client.Server.Execute("test");
 
-    // explicitly configured endpoint
-    using (var client = new WcfEx.Client<IService>(new NetNamedPipeBinding(), "net.pipe://localhost/Test"))
-      client.Server.Execute("test");
+// named configuration-based endpoint
+using (var client = new WcfEx.Client<IService>("MyEndpoint")
+   client.Server.Execute("test");
+
+// explicitly configured endpoint
+using (var client = new WcfEx.Client<IService>(new NetNamedPipeBinding(), "net.pipe://localhost/Test"))
+   client.Server.Execute("test");
+```
 
 ###WCF Host Application###
 This project includes a generic Windows application (`WcfExHost.exe`) that 
@@ -64,28 +72,30 @@ WcfEx provides this with the `ClientHostBehavior` extension. When this
 behavior is added to a client endpoint, it automatically starts a host for 
 the configured service when the client channel is first created.
 
-    <system.serviceModel>
-       <extensions>
-          <behaviorExtensions>
-             <add name="clientHost" type="WcfEx.ClientHostBehavior,WcfEx"/>
-          </behaviorExtensions>
-       </extensions>
-       <services>
-          <service name="MyMockService">
-             <endpoint contract="IMyService">...</endpoint>
-          </service>
-       </services>
-       <client>
-          <endpoint contract="IMyService">...</endpoint>
-       </client>
-       <behaviors>
-          <endpointBehaviors>
-             <behavior>
-                <clientHost/>
-             </behavior>
-          </endpointBehaviors>
-       </behaviors>
-    </system.serviceModel>
+```xml
+<system.serviceModel>
+   <extensions>
+      <behaviorExtensions>
+         <add name="clientHost" type="WcfEx.ClientHostBehavior,WcfEx"/>
+      </behaviorExtensions>
+   </extensions>
+   <services>
+      <service name="MyMockService">
+         <endpoint contract="IMyService">...</endpoint>
+      </service>
+   </services>
+   <client>
+      <endpoint contract="IMyService">...</endpoint>
+   </client>
+   <behaviors>
+      <endpointBehaviors>
+         <behavior>
+            <clientHost/>
+         </behavior>
+      </endpointBehaviors>
+   </behaviors>
+</system.serviceModel>
+```
 
 In addition, the library includes the `<inProcTransport>` binding that
 bypasses the system networking infrastructure and WCF encoding stack,
@@ -125,33 +135,37 @@ when it is not used.
 
 For synchronous operations:
 
-    public String Trim (String str)
-    {
-       return str.Trim();
-    }
-    public IAsyncResult BeginTrim (String str, AsyncCallback callback, Object state)
-    {
-       var trimmed = Trim(str);
-       return new SyncResult(callback, state, trimmed);
-    }
-    public String EndTrim (IAsyncResult result)
-    {
-       return ((SyncResult)result).GetResult<String>();
-    }
+```c#
+public String Trim (String str)
+{
+   return str.Trim();
+}
+public IAsyncResult BeginTrim (String str, AsyncCallback callback, Object state)
+{
+   var trimmed = Trim(str);
+   return new SyncResult(callback, state, trimmed);
+}
+public String EndTrim (IAsyncResult result)
+{
+   return ((SyncResult)result).GetResult<String>();
+}
+```
 
 For asynchronous operations:
 
-    public String Trim (String str, TimeSpan timeout)
-    {
-       return EndTrim(BeginTrim(str, timeout, null, null));
-    }
-    public IAsyncResult BeginTrim (String str, TimeSpan timeout, AsyncCallback callback, Object state)
-    {
-       var result = new AsyncResult(callback, state, timeout);
-       ThreadPool.QueueUserWorkItem(o => result.Complete(str.Trim()), null);
-       return result;
-    }
-    public String EndTrim (IAsyncResult result)
-    {
-       return ((AsyncResult)result).GetResult<String>();
-    }
+```c#
+public String Trim (String str, TimeSpan timeout)
+{
+   return EndTrim(BeginTrim(str, timeout, null, null));
+}
+public IAsyncResult BeginTrim (String str, TimeSpan timeout, AsyncCallback callback, Object state)
+{
+   var result = new AsyncResult(callback, state, timeout);
+   ThreadPool.QueueUserWorkItem(o => result.Complete(str.Trim()), null);
+   return result;
+}
+public String EndTrim (IAsyncResult result)
+{
+   return ((AsyncResult)result).GetResult<String>();
+}
+```

@@ -94,7 +94,7 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\README.md">
+    <None Include="..\readme.md">
       <Link>README.md</Link>
     </None>
     <None Include="..\WcfEx.nuspec">
