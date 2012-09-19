@@ -57,6 +57,8 @@ namespace WcfEx
       public virtual void Validate (ContractDescription desc, ServiceEndpoint endpoint)
       {
          Validate();
+         foreach (OperationDescription op in desc.Operations)
+            Validate(op);
       }
       /// <summary>
       /// Registers custom contract binding parameters
@@ -75,6 +77,8 @@ namespace WcfEx
          ServiceEndpoint endpoint,
          BindingParameterCollection binding)
       {
+         foreach (OperationDescription op in desc.Operations)
+            AddBindingParameters(op, binding);
       }
       /// <summary>
       /// Applies the current behavior to the client side of a contract
@@ -93,8 +97,8 @@ namespace WcfEx
          ServiceEndpoint endpoint,
          ClientRuntime client)
       {
-         foreach (OperationDescription op in desc.Operations)
-            ApplyOperationBehavior(op);
+         for (Int32 i = 0; i < desc.Operations.Count; i++)
+            ApplyClientBehavior(desc.Operations[i], client.Operations[i]);
       }
       /// <summary>
       /// Applies the current behavior to the service side of a contract
@@ -113,8 +117,8 @@ namespace WcfEx
          ServiceEndpoint endpoint,
          DispatchRuntime dispatch)
       {
-         foreach (OperationDescription op in desc.Operations)
-            ApplyOperationBehavior(op);
+         for (Int32 i = 0; i < desc.Operations.Count; i++)
+            ApplyDispatchBehavior(desc.Operations[i], dispatch.Operations[i]);
       }
       #endregion
 
@@ -177,7 +181,7 @@ namespace WcfEx
       }
       #endregion
 
-      #region TypeResolver Helpers
+      #region Behavior Helper Overrides
       /// <summary>
       /// Validates the type resolver
       /// </summary>
