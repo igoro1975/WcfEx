@@ -38,7 +38,7 @@ namespace WcfEx
       AttributeTargets.Interface | AttributeTargets.Method, 
       AllowMultiple = false, 
       Inherited = true)]
-   public sealed class TypeResolverAttribute : ContractBehaviorAttribute
+   public class TypeResolverAttribute : ContractBehaviorAttribute
    {
       private Type type;
       private DataContractResolver resolver = null;

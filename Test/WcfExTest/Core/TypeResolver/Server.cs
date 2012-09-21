@@ -47,7 +47,7 @@ namespace WcfEx.Test.Core.TypeResolver
       /// The echoed value
       /// </returns>
       [OperationContract]
-      [TypeResolver(typeof(SharedTypeResolver))]
+      [SharedTypeResolver]
       Data Echo (Data data);
    }
 

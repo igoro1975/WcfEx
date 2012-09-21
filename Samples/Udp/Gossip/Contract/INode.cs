@@ -34,7 +34,7 @@ namespace WcfEx.Samples.Gossip
    /// in the gossip overlay network and to query/update the local node.
    /// </remarks>
    [ServiceContract(Namespace = "http://brentspell.us/Projects/WcfEx/Samples/Gossip/")]
-   [TypeResolver(typeof(SharedTypeResolver))]
+   [SharedTypeResolver]
    public interface INode
    {
       /// <summary>

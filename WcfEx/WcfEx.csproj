@@ -33,6 +33,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Behavior\ClientHostBehavior.cs" />
+    <Compile Include="Contract\SharedTypeResolverAttribute.cs" />
     <Compile Include="Core\Behavior\ContractBehaviorAttribute.cs" />
     <Compile Include="Core\Behavior\ServiceBehavior.cs" />
     <Compile Include="Core\Behavior\EndpointBehavior.cs" />
@@ -70,7 +71,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Contract\SharedTypeResolver.cs" />
     <Compile Include="Core\Contract\TypeResolver.cs" />
-    <Compile Include="Core\Contract\TypeResolverAttribute.cs" />
+    <Compile Include="Behavior\TypeResolverAttribute.cs" />
     <Compile Include="Transport\Udp\BindingElement.cs" />
     <Compile Include="Transport\Udp\Binding.cs" />
     <Compile Include="Transport\Udp\OutputChannel.cs" />
