@@ -63,6 +63,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{2718B2
 		.gitignore = .gitignore
 		license.txt = license.txt
 		README.md = README.md
+		Version.cs = Version.cs
 		WcfEx.nuspec = WcfEx.nuspec
 		WcfEx.png = WcfEx.png
 	EndProjectSection

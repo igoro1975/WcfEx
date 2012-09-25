@@ -32,6 +32,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\Version.cs">
+      <Link>Properties\Version.cs</Link>
+    </Compile>
     <Compile Include="Behavior\ClientHostBehavior.cs" />
     <Compile Include="Contract\SharedTypeResolverAttribute.cs" />
     <Compile Include="Core\Behavior\ContractBehaviorAttribute.cs" />

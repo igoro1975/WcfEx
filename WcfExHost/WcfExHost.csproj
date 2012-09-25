@@ -29,6 +29,9 @@
     <ApplicationIcon>Resources\App.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="..\Version.cs">
+      <Link>Properties\Version.cs</Link>
+    </Compile>
     <Compile Include="WindowsServiceInstaller.cs">
       <SubType>Component</SubType>
     </Compile>

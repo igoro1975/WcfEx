@@ -1,6 +1,6 @@
-//===========================================================================
-// MODULE:  AssemblyInfo.cs
-// PURPOSE: assembly configuration properties
+﻿//===========================================================================
+// MODULE:  Version.cs
+// PURPOSE: project version assembly properties
 // 
 // Copyright © 2012
 // Brent M. Spell. All rights reserved.
@@ -20,19 +20,7 @@
 //===========================================================================
 // System References
 using System.Reflection;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 // Project References
 
-[assembly:Guid("5979B069-4F50-4093-B01F-AF953007AA23")]
-[assembly:AssemblyTitle("WcfExHost")]
-[assembly:AssemblyDescription("WCF Extensions Service Host")]
-[assembly:AssemblyCompany("Brent M. Spell")]
-[assembly:AssemblyProduct("WcfEx")]
-[assembly:AssemblyCopyright("Copyright © 2012 Brent M. Spell. All Rights Reserved.")]
-[assembly:ComVisible(false)]
-#if DEBUG
-[assembly:AssemblyConfiguration("Debug")]
-#else
-[assembly:AssemblyConfiguration("Release")]
-#endif
+[assembly: AssemblyVersion("1.0.4.0")]
+[assembly: AssemblyFileVersion("1.0.4.0")]
