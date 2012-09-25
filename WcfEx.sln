@@ -58,6 +58,15 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Node", "Samples\Udp\Gossip\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Client", "Samples\Udp\Gossip\Client\Client.csproj", "{EC74216D-F0A2-4539-8CD2-352C83C92204}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Config", "Config", "{2718B2E6-007D-481D-8B75-7AB619A216F8}"
+	ProjectSection(SolutionItems) = preProject
+		.gitignore = .gitignore
+		license.txt = license.txt
+		README.md = README.md
+		WcfEx.nuspec = WcfEx.nuspec
+		WcfEx.png = WcfEx.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

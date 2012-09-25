@@ -83,24 +83,5 @@
     <Compile Include="Transport\Udp\RequestReply.cs" />
     <Compile Include="Transport\Udp\UdpSocket.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="..\.gitignore">
-      <Link>.gitignore</Link>
-    </Content>
-    <Content Include="..\license.txt">
-      <Link>license.txt</Link>
-    </Content>
-    <Content Include="..\WcfEx.png">
-      <Link>WcfEx.png</Link>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\readme.md">
-      <Link>README.md</Link>
-    </None>
-    <None Include="..\WcfEx.nuspec">
-      <Link>WcfEx.nuspec</Link>
-    </None>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

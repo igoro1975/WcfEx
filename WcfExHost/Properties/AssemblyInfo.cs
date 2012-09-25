@@ -30,8 +30,8 @@ using System.Runtime.InteropServices;
 [assembly:AssemblyCompany("Brent M. Spell")]
 [assembly:AssemblyProduct("WcfEx")]
 [assembly:AssemblyCopyright("Copyright © 2012 Brent M. Spell. All Rights Reserved.")]
-[assembly:AssemblyVersion("1.0.3.0")]
-[assembly:AssemblyFileVersion("1.0.3.0")]
+[assembly:AssemblyVersion("1.0.4.0")]
+[assembly:AssemblyFileVersion("1.0.4.0")]
 [assembly:ComVisible(false)]
 #if DEBUG
 [assembly:AssemblyConfiguration("Debug")]

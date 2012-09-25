@@ -66,7 +66,10 @@ namespace WcfEx.Host.Test
       private Client<IServer1> Connect1()
       {
          return new Client<IServer1>(
-            new NetTcpBinding(),
+            new NetTcpBinding()
+            {
+               OpenTimeout = TimeSpan.FromSeconds(10)
+            },
             "net.tcp://localhost:42000/Server1/"
          );
       }
@@ -74,7 +77,10 @@ namespace WcfEx.Host.Test
       private Client<IServer2> Connect2()
       {
          return new Client<IServer2>(
-            new Udp.Binding(),
+            new Udp.Binding()
+            {
+               OpenTimeout = TimeSpan.FromSeconds(10)
+            },
             "udp://localhost:42000/Server2/"
          );
       }
@@ -82,7 +88,10 @@ namespace WcfEx.Host.Test
       private Client<IServer3> Connect3()
       {
          return new Client<IServer3>(
-            new NetNamedPipeBinding(),
+            new NetNamedPipeBinding()
+            {
+               OpenTimeout = TimeSpan.FromSeconds(10)
+            },
             "net.pipe://localhost/WcfExHost/Test/Server3/"
          );
       }

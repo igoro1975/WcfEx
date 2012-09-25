@@ -22,7 +22,6 @@
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
-using System.Linq;
 using System.ServiceModel;
 using System.ServiceModel.Channels;
 using System.Threading;
@@ -93,7 +92,7 @@ namespace WcfEx.Udp
       {
          this.socket.Dispose();
          // abort any pending requests
-         if (this.requestMap.Any())
+         if (this.requestMap.Count > 0)
          {
             List<PendingRequest> requests = new List<PendingRequest>(this.requestMap.Count);
             lock (base.ThisLock)
@@ -260,7 +259,7 @@ namespace WcfEx.Udp
       /// </summary>
       private void FlushTimeouts ()
       {
-         if (this.requestMap.Any())
+         if (this.requestMap.Count > 0)
          {
             // serialize the list of pending requests
             List<KeyValuePair<System.Xml.UniqueId, PendingRequest>> entries = 
