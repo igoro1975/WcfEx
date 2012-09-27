@@ -35,6 +35,7 @@ namespace WcfEx.Host
    /// WCF host service, which can be done via installutil.
    /// </remarks>
    [RunInstaller(true)]
+   [System.ComponentModel.DesignerCategory("Code")]
    public sealed class WindowsServiceInstaller : System.Configuration.Install.Installer
    {
       ServiceProcessInstaller processInstaller;

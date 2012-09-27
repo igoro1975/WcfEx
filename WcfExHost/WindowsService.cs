@@ -33,6 +33,7 @@ namespace WcfEx.Host
    /// WCF service host, for unattended and automatic
    /// hosting of installed services.
    /// </remarks>
+   [System.ComponentModel.DesignerCategory("Code")]
    internal sealed class WindowsService : ServiceBase
    {
       ServiceHost host = null;
