@@ -1,5 +1,5 @@
-WcfEx
-=====
+![WcfEx](https://raw.github.com/bspell1/WcfEx/master/WcfEx.png) WcfEx
+=====================================================================
 Yet another lightweight WCF extensions library for .NET 4.0+
 
 ###`PM> Install-Package WcfEx`###
