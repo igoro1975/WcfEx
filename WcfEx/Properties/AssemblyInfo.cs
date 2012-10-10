@@ -19,6 +19,7 @@
 //    Boston, MA 02110-1301 USA
 //===========================================================================
 // System References
+using System;
 using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
@@ -30,6 +31,7 @@ using System.Runtime.InteropServices;
 [assembly:AssemblyCompany("Brent M. Spell")]
 [assembly:AssemblyProduct("WcfEx")]
 [assembly:AssemblyCopyright("Copyright © 2012 Brent M. Spell. All Rights Reserved.")]
+[assembly:CLSCompliant(true)]
 [assembly:ComVisible(false)]
 #if DEBUG
 [assembly:AssemblyConfiguration("Debug")]
