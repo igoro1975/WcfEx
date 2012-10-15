@@ -189,7 +189,7 @@ namespace WcfEx.Host
       private IList<Configuration> LoadConfigFiles (IList<String> searchPaths)
       {
          Configuration thisConfig = ConfigurationManager.OpenExeConfiguration(
-            new Uri(Assembly.GetEntryAssembly().CodeBase).LocalPath
+            Assembly.GetEntryAssembly().Location
          );
          return searchPaths
             .SelectMany(p => Directory.GetFiles(p, "*.dll.config"))
