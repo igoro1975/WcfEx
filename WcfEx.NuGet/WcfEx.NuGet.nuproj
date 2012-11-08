@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectGuid>{99a7a0fc-71bc-41f2-9a30-519e6f52e547}</ProjectGuid>
+    <OutputPath>..\Bin\</OutputPath>
+    <NuBuildVersionSource>library</NuBuildVersionSource>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)' == 'Release'">
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="WcfEx.nuspec" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\WcfEx\WcfEx.csproj">
+      <Name>WcfEx</Name>
+      <Project>{34ae5cd4-82a4-4991-b05b-9c55df7617cb}</Project>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\NuBuild\v1\NuBuild.targets" />
+</Project>
